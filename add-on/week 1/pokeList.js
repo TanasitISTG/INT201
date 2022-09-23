@@ -2,7 +2,7 @@ exports.pokeList =  [
   {id: '001', name: 'Bulbasaur', type: 'grass', atk: 10},
   {id: '004', name: 'Charmander', type: 'fire', atk: 16},
   {id: '191', name: 'Sunkern', type: 'grass', atk: 18},
-  {id: '390', name: 'Chimchar', type: 'fire', atk: 12},
+  {id: '390', name: 'Chimchar', type: 'fire', atk: 16},
   null,
   {id: '069', name: 'Bellsprout', type: 'grass', atk: 20},
   {id: '015', name: 'Beedrill', type: 'grass', atk: 17},
