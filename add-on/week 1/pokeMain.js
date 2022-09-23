@@ -45,7 +45,8 @@ function most_atk(arr) {
             }
         }
     }
-    return most;
+    //sort most by atk
+    return most.sort((a, b) => b.atk - a.atk);
 }
 
-console.log(fire_type(poke));
+console.log(most_atk(poke));
