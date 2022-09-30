@@ -45,7 +45,6 @@ function most_atk(arr) {
             }
         }
     }
-    //make all the arrays into one array
     all = all.concat(maxFireArr, maxGrassArr, maxElectricArr);
     return all.sort((a, b) => a.atk - b.atk);       
 }
