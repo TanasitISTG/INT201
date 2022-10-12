@@ -11,6 +11,9 @@ let removeTodo = (removeId) => {
     for (let i = 0; i < todos.length; i++) {
         if (todos[i].id === removeId) {
             todos.splice(i, 1)
+            // for (let j = i; j < todos.length; j++) {
+            //     todos[j].id--
+            // }
             return `Todo with id ${removeId} removed, ${todos.length} todos left`
         }
     }
