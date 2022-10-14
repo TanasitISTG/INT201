@@ -11,10 +11,10 @@ function battle(pokemon1, pokemon2) {
     
     let round = 1
     while (round <= 10) {
-        let rand_start = Math.floor(Math.random() * 10) + 1
+        let rand_atk = Math.floor(Math.random() * 10) + 1
 
         console.log(`------ Round ${round} ------`)
-        if (rand_start % 2 === 0) {
+        if (rand_atk % 2 === 0) {
             pokemon2.setHp(pokemon2.getHp() - pokemon1.getAtk())
             console.log(`${pokemon1.getName()} attacks ${pokemon2.getName()}!`)
             console.log(`${pokemon2.getName()} has ${pokemon2.getHp()} hp left!`)
