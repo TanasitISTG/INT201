@@ -38,17 +38,15 @@ function battle(pokemon1, pokemon2) {
     console.log('--------------')
     console.log(pokemon1.getInfo())
     console.log(pokemon2.getInfo())
+    console.log('--------------')
     
     if (pokemon1.getHp() > pokemon2.getHp()) {
-        console.log('--------------')
         console.log(`${pokemon1.getName()} wins!`)
     }
     else if (pokemon1.getHp() < pokemon2.getHp()) {
-        console.log('--------------')
         console.log(`${pokemon2.getName()} wins!`)
     }
     else {
-        console.log('--------------')
         console.log('Draw')
     }
 }
