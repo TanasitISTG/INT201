@@ -1,6 +1,6 @@
 class Pokemon{
-    #atk
-    #hp
+    #atk // เป็น private variable 
+    #hp // เป็น private variable 
 
     constructor(name = undefined, hp = 0, atk = 0) {
         this.name = name
