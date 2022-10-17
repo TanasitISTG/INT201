@@ -1,4 +1,4 @@
-class Pokemon{
+class Pokemon {
     #atk // เป็น private variable 
     #hp // เป็น private variable 
 
