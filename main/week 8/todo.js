@@ -1,8 +1,8 @@
-const todos = []
-
 class Todo { 
-    constructor(id, description) {
-        this.id = id
+    static autoId = 1
+
+    constructor(description) {
+        this.id = Todo.autoId++
         this.description = description
     }
 
@@ -16,55 +16,75 @@ class Todo {
     }
 }
 
-let addTodo = (desc) => {
-    todos.push(desc)
-    return todos.length
-}
+const TodoManagement = () => {
+    let todos = []
 
-let removeTodo = (removeId) => {
-    for (let i = 0; i < todos.length; i++) {
-        if (todos[i].id === removeId) {
-            todos.splice(i, 1)
-            // for (let j = i; j < todos.length; j++) {
-            //     todos[j].id--
-            // }
-            return `Todo with id ${removeId} removed, ${todos.length} todos left`
-        }
+    const addTodo = (description) => {
+        return todos.push(new Todo(description))
     }
-    return `Todo with id ${removeId} not found`
-}
 
-let findTodo = (searchId) => {
-    for (let i = 0; i < todos.length; i++) {
-        if (todos[i].id === searchId) {
-            return todos[i]
-        }
+    const removeTodo = (removeId) => {
+        todos = todos.filter(todo => todo.id !== removeId)
     }
-    return `Todo with id ${searchId} not found`
+
+    const findTodo = (searchId) => {
+        return todos.find(todo => todo.id === searchId)
+    }
+
+    const getTodos = () => {
+        return todos
+    }
+
+    return [addTodo, removeTodo, findTodo, getTodos]
 }
 
-let getTodos = () => {
-    return todos
-}
+const [addTodo, removeTodo, findTodo, getTodos] = TodoManagement()
 
-const test = () => {
-    console.log('Adding todos...')
-    console.log('---------------------')
-    console.log(addTodo(new Todo(1, 'go to sleep')))
-    console.log(addTodo(new Todo(2, 'get a new keyboard')))
-    console.log(addTodo(new Todo(3, 'buy a world')))
-    console.log('---------------------')
-    console.log(removeTodo(2))
-    console.log('---------------------')
-    console.log(findTodo(3))
-    console.log('---------------------')
-    console.log(getTodos())
-    console.log('\n=====================')
-    console.log('=====================\n')
-    console.log('Test function from class Todo')
-    console.log('---------------------')
-    console.log(findTodo(1).setDescription('go to sleep and dream'))
-    console.log(findTodo(1).getTodo())
-}
+// let addTodo = (desc) => {
+//     todos.push(new Todo(desc))
+// }
 
-test()
+// let removeTodo = (removeId) => {
+//     for (let i = 0; i < todos.length; i++) {
+//         if (todos[i].id === removeId) {
+//             todos.splice(i, 1)
+//             // for (let j = i; j < todos.length; j++) {
+//             //     todos[j].id--
+//             // }
+//             return `Todo with id ${removeId} removed, ${todos.length} todos left`
+//         }
+//     }
+//     return `Todo with id ${removeId} not found`
+// }
+
+// let findTodo = (searchId) => {
+//     for (let i = 0; i < todos.length; i++) {
+//         if (todos[i].id === searchId) {
+//             return todos[i]
+//         }
+//     }
+//     return `Todo with id ${searchId} not found`
+// }
+
+// let getTodos = () => {
+//     return todos
+// }
+
+console.log('Adding todos...')
+console.log('---------------------')
+console.log(addTodo('go to sleep'))
+console.log(addTodo('get a new keyboard'))
+console.log(addTodo('buy a world'))
+console.log('---------------------')
+removeTodo(2)
+console.log(`Todo with id 2 removed, ${getTodos().length} todos left`)
+console.log('---------------------')
+console.log(findTodo(3))
+console.log('---------------------')
+console.log(getTodos())
+console.log('\n=====================')
+console.log('=====================\n')
+console.log('Test function from class Todo')
+console.log('---------------------')
+console.log(findTodo(1).setDescription('go to sleep and dream'))
+console.log(findTodo(1).getTodo())
