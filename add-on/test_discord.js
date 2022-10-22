@@ -11,14 +11,14 @@ if (token === '' || token === null || token === undefined || token === 'enter yo
     return console.log('You must change the token variable to your token')
 }
 
-let channel = prompt('Enter the channel ID: ')
+let channelId = prompt('Enter the channel ID: ')
 
-if (channel === '' || channel === null || channel === undefined || isNaN(channel) === true) {
+if (channelId === '' || channelId === null || channelId === undefined || isNaN(channelId) === true) {
     return console.log('You must enter a channel ID with only numbers')
 }
 
 setTimeout(() => {
-    const url = `https://discord.com/api/v9/channels/${channel}/typing`
+    const url = `https://discord.com/api/v9/channels/${channelId}/typing`
 
     interval = setInterval(() => {
         request.post({ url, headers }, (err, res, body) => {
