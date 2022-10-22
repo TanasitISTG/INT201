@@ -6,10 +6,15 @@ const headers = { authorization: token }
 const delay = 5
 let interval
 let count = 0
+
+if (token === '' || token === null || token === undefined || token === 'enter your token here') {
+    return console.log('You must change the token variable to your token')
+}
+
 let channel = prompt('Enter the channel ID: ')
 
-if (channel === '' || channel === null || channel === undefined) {
-    return console.log('You must enter a channel ID')
+if (channel === '' || channel === null || channel === undefined || isNaN(channel) === true) {
+    return console.log('You must enter a channel ID with only numbers')
 }
 
 setTimeout(() => {
