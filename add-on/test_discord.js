@@ -2,9 +2,6 @@ const request = require('request')
 const prompt = require('prompt-sync')()
 
 let token = 'enter your token here'
-const headers = { authorization: token }
-const delay = 5
-let interval
 let count = 0
 
 if (token === '' || token === null || token === undefined || token === 'enter your token here') {
@@ -19,7 +16,10 @@ if (channelId === '' || channelId === null || channelId === undefined || isNaN(c
 
 setTimeout(() => {
     const url = `https://discord.com/api/v9/channels/${channelId}/typing`
-
+    const delay = 5
+    const headers = { authorization: token }
+    let interval
+    
     interval = setInterval(() => {
         request.post({ url, headers }, (err, res, body) => {
             if (err) return console.error(err)
