@@ -27,30 +27,35 @@ divContainer[imageCount].appendChild(divButton)
 divButton.appendChild(prevButton)
 divButton.appendChild(nextButton)
 
+const isImageFound = (image) => {
+    if (poke[imageCount].name.english in pokeImg) {
+        image.src = pokeImg[poke[imageCount].name.english]
+        image.alt = poke[imageCount].name.english
+    } else {
+        image.src = 'https://bitsofco.de/content/images/2018/12/broken-1.png'
+        image.alt = 'Image not found'
+    }
+}
+
 nextButton.addEventListener('click', () => {
     imageCount++
-    if (imageCount < poke.length) {
-        pTag.textContent = poke[imageCount].name.english
-        imageTag.src = pokeImg[poke[imageCount].name.english]
-        imageTag.alt = poke[imageCount].name.english
-    } else {
+    if (imageCount >= poke.length) {
         imageCount = 0
-        pTag.textContent = poke[imageCount].name.english
-        imageTag.src = pokeImg[poke[imageCount].name.english]
-        imageTag.alt = poke[imageCount].name.english
     }
+    pTag.textContent = poke[imageCount].name.english
+    isImageFound(imageTag)
 })
 
 prevButton.addEventListener('click', () => {
     imageCount--
     if (imageCount < 0) {
         imageCount = poke.length - 1
-        pTag.textContent = poke[imageCount].name.english
-        imageTag.src = pokeImg[poke[imageCount].name.english]
-        imageTag.alt = poke[imageCount].name.english
-    } else {
-        pTag.textContent = poke[imageCount].name.english
-        imageTag.src = pokeImg[poke[imageCount].name.english]
-        imageTag.alt = poke[imageCount].name.english
     }
+    pTag.textContent = poke[imageCount].name.english    
+    isImageFound(imageTag)
 })
+
+// imageTag.addEventListener('error', () => {
+//     imageTag.src = 'https://bitsofco.de/content/images/2018/12/broken-1.png'
+//     imageTag.alt = 'pokemon image not found'
+// })
