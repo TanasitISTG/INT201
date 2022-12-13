@@ -45,23 +45,20 @@ const addTodoHandler = () => {
 
 const notDoneButtonHandler = (event) => {
   const todoId = Number(event.target.parentElement.id)
-  if (event.target.textContent === 'Not Done') {
-    event.target.textContent = 'Done'
-    event.target.style = 'background-color: green; color: white'
-    setItemToDone(todoId)
-    showNumberOfDone(getNumberOfDone())
-    showNumberOfNotDone(getNumberOfNotDone())
-  }
+  event.target.textContent = 'Done'
+  event.target.style = 'background-color: green; color: white'
+  setItemToDone(todoId)
+  showNumberOfDone(getNumberOfDone())
+  showNumberOfNotDone(getNumberOfNotDone())
+
 }
 
 const removeButtonHandler = (event) => {
   const todoId = Number(event.target.parentElement.id)
-  if (event.target.textContent === 'remove') {
-    removeTodo(todoId)
-    removeTodoItem(todoId)
-    showNumberOfDone(getNumberOfDone())
-    showNumberOfNotDone(getNumberOfNotDone())
-  }
+  removeTodo(todoId)
+  removeTodoItem(todoId)
+  showNumberOfDone(getNumberOfDone())
+  showNumberOfNotDone(getNumberOfNotDone())
 }
 
 // export {
